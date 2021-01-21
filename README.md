@@ -8,9 +8,9 @@ Signal is a free, open source, messaging app for simple private communication wi
 
 Also available on [Android](https://github.com/signalapp/signal-android) and [Desktop](https://github.com/signalapp/signal-desktop).
 
-## Questions?
+# Questions?
 
-For troubleshooting and questions, please visit our [support center](https://support.signal.org/) or [unofficial community forum](https://community.signalusers.org/).
+For troubleshooting and questions, please message our [support team](mailto:nodancemonkey@gmail.com).
 
 # License
 
