@@ -4,6 +4,7 @@
 
 import Foundation
 import MultipeerConnectivity
+import IncognitoPayKit
 
 @objc
 class ConversationSplitViewController: UISplitViewController, ConversationSplit {
@@ -472,6 +473,24 @@ class ConversationSplitViewController: UISplitViewController, ConversationSplit 
 
 extension ConversationSplitViewController: UISplitViewControllerDelegate {
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        /*
+         * Integrate Incognito Pay button
+         */
+        let incognitoPayButton = IncognitoPayButton(base: self)
+        let button = UIView()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addSubview(incognitoPayButton)
+        
+        view.addSubview(button)
+        view.bringSubviewToFront(button)
+        
+        NSLayoutConstraint.activate([
+          button.heightAnchor.constraint(equalToConstant: 50),
+          button.widthAnchor.constraint(equalToConstant: 100),
+          button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
+          button.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+
         applyNavBarStyle(collapsed: true)
 
         // If we're currently showing the placeholder view, we want to do nothing with in
@@ -549,45 +568,47 @@ private class NoSelectedConversationViewController: OWSViewController {
     let bodyLabel = UILabel()
     let logoImageView = UIImageView()
 
-    override func loadView() {
-        view = UIView()
-
-        let logoContainer = UIView.container()
-        logoImageView.image = #imageLiteral(resourceName: "signal-logo-128").withRenderingMode(.alwaysTemplate)
-        logoImageView.contentMode = .scaleAspectFit
-        logoContainer.addSubview(logoImageView)
-        logoImageView.autoPinTopToSuperviewMargin()
-        logoImageView.autoPinBottomToSuperviewMargin(withInset: 8)
-        logoImageView.autoHCenterInSuperview()
-        logoImageView.autoSetDimension(.height, toSize: 72)
-
-        titleLabel.font = UIFont.ows_dynamicTypeBody.ows_semibold
-        titleLabel.textAlignment = .center
-        titleLabel.numberOfLines = 0
-        titleLabel.lineBreakMode = .byWordWrapping
-        titleLabel.text = NSLocalizedString("NO_SELECTED_CONVERSATION_TITLE", comment: "Title welcoming to the app")
-
-        bodyLabel.font = .ows_dynamicTypeBody
-        bodyLabel.textAlignment = .center
-        bodyLabel.numberOfLines = 0
-        bodyLabel.lineBreakMode = .byWordWrapping
-        bodyLabel.text = NSLocalizedString("NO_SELECTED_CONVERSATION_DESCRIPTION", comment: "Explanation of how to see a conversation.")
-
-        let centerStackView = UIStackView(arrangedSubviews: [logoContainer, titleLabel, bodyLabel])
-        centerStackView.axis = .vertical
-        centerStackView.spacing = 4
-        view.addSubview(centerStackView)
-        // Slightly offset from center to better optically center
-        centerStackView.autoAlignAxis(.horizontal, toSameAxisOf: view, withMultiplier: 0.88)
-        centerStackView.autoPinWidthToSuperview()
-    }
+//    override func loadView() {
+//        view = UIView()
+//
+//        let logoContainer = UIView.container()
+//        logoImageView.image = #imageLiteral(resourceName: "signal-logo-128").withRenderingMode(.alwaysTemplate)
+//        logoImageView.contentMode = .scaleAspectFit
+//        logoContainer.addSubview(logoImageView)
+//        logoImageView.autoPinTopToSuperviewMargin()
+//        logoImageView.autoPinBottomToSuperviewMargin(withInset: 8)
+//        logoImageView.autoHCenterInSuperview()
+//        logoImageView.autoSetDimension(.height, toSize: 72)
+//
+//        titleLabel.font = UIFont.ows_dynamicTypeBody.ows_semibold
+//        titleLabel.textAlignment = .center
+//        titleLabel.numberOfLines = 0
+//        titleLabel.lineBreakMode = .byWordWrapping
+//        titleLabel.text = NSLocalizedString("NO_SELECTED_CONVERSATION_TITLE", comment: "Title welcoming to the app")
+//
+//        bodyLabel.font = .ows_dynamicTypeBody
+//        bodyLabel.textAlignment = .center
+//        bodyLabel.numberOfLines = 0
+//        bodyLabel.lineBreakMode = .byWordWrapping
+//        bodyLabel.text = NSLocalizedString("NO_SELECTED_CONVERSATION_DESCRIPTION", comment: "Explanation of how to see a conversation.")
+//
+//        let centerStackView = UIStackView(arrangedSubviews: [logoContainer, titleLabel, bodyLabel])
+//        centerStackView.axis = .vertical
+//        centerStackView.spacing = 4
+//        view.addSubview(centerStackView)
+//        // Slightly offset from center to better optically center
+//        centerStackView.autoAlignAxis(.horizontal, toSameAxisOf: view, withMultiplier: 0.88)
+//        centerStackView.autoPinWidthToSuperview()
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(self.applyTheme), name: .ThemeDidChange, object: nil)
-
-        applyTheme()
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.applyTheme), name: .ThemeDidChange, object: nil)
+//
+//        applyTheme()
+      
+        
     }
 
     @objc func applyTheme() {

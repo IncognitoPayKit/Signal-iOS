@@ -860,6 +860,7 @@
 		D2AEACDC16C426DA00C364C0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AEACDB16C426DA00C364C0 /* CFNetwork.framework */; };
 		DA2448EB739FFD5100E94059 /* Pods_NotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF2FAAECC00C2F8262444B8 /* Pods_NotificationServiceExtension.framework */; };
 		E1368CBE18A1C36B00109378 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9EB5ABC1884C002007CBB57 /* MessageUI.framework */; };
+		E153EFC525BCEED7009196E2 /* IncognitoPayKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E153EFC425BCEEBC009196E2 /* IncognitoPayKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E44AD4E624E98F440035D7B8 /* PhotoCaptureDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44AD4E524E98F430035D7B8 /* PhotoCaptureDismiss.swift */; };
 		FC3BD9881A30A790005B96BB /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3BD9871A30A790005B96BB /* Social.framework */; };
 		FCB11D8C1A129A76002F93FB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB11D8B1A129A76002F93FB /* CoreMedia.framework */; };
@@ -929,6 +930,13 @@
 			remoteGlobalIDString = D221A088169C9E5E00537ABF;
 			remoteInfo = Signal;
 		};
+		E153EFC325BCEEBC009196E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E153EFBF25BCEEBC009196E2 /* IncognitoPayKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E1A704D5256BB0F900DC9AAA;
+			remoteInfo = IncognitoPayKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -950,6 +958,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				E153EFC525BCEED7009196E2 /* IncognitoPayKit.framework in Embed Frameworks */,
 				4535189A1FC63DBF00210559 /* SignalMessaging.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -1990,6 +1999,7 @@
 		DCFF39FE94636EAFEAF06C70 /* Pods-NotificationServiceExtension.app store release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotificationServiceExtension.app store release.xcconfig"; path = "Pods/Target Support Files/Pods-NotificationServiceExtension/Pods-NotificationServiceExtension.app store release.xcconfig"; sourceTree = "<group>"; };
 		DE2DD605305BC6EFAD731723 /* Pods-Signal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Signal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Signal/Pods-Signal.debug.xcconfig"; sourceTree = "<group>"; };
 		DF728B4B438716EAF95CEC18 /* Pods-Signal.app store release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Signal.app store release.xcconfig"; path = "Pods/Target Support Files/Pods-Signal/Pods-Signal.app store release.xcconfig"; sourceTree = "<group>"; };
+		E153EFBF25BCEEBC009196E2 /* IncognitoPayKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IncognitoPayKit.xcodeproj; path = ../IncognitoPayKit/IncognitoPayKit/IncognitoPayKit.xcodeproj; sourceTree = "<group>"; };
 		E1A0AD8B16E13FDD0071E604 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		E1B5467C25B8E16700CA69A1 /* SignalShareExtensionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SignalShareExtensionDebug.entitlements; sourceTree = "<group>"; };
 		E1B5467D25B8E20B00CA69A1 /* NotificationServiceExtensionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationServiceExtensionDebug.entitlements; sourceTree = "<group>"; };
@@ -3777,6 +3787,7 @@
 		D221A08C169C9E5E00537ABF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E153EFBF25BCEEBC009196E2 /* IncognitoPayKit.xcodeproj */,
 				347C37FE2526005800F3D941 /* CloudKit.framework */,
 				38AD4FA92310B7E00038BA75 /* SignalRingRTC.framework */,
 				4C9CA25C217E676900607C63 /* ZXingObjC.framework */,
@@ -3849,6 +3860,14 @@
 				882F8DE5251AB23600AA4359 /* Settings.bundle */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E153EFC025BCEEBC009196E2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E153EFC425BCEEBC009196E2 /* IncognitoPayKit.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		FCFA64B11A24F29E0007FB87 /* UI Categories */ = {
@@ -4104,6 +4123,9 @@
 						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
+					4C10B17F23176D250099396B = {
+						DevelopmentTeam = 2NQBGG84BZ;
+					};
 					885AC56323AB42430077705E = {
 						CreatedOnToolsVersion = 11.2.1;
 						DevelopmentTeam = 2NQBGG84BZ;
@@ -4245,6 +4267,12 @@
 			mainGroup = D221A07E169C9E5E00537ABF;
 			productRefGroup = D221A08A169C9E5E00537ABF /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E153EFC025BCEEBC009196E2 /* Products */;
+					ProjectRef = E153EFBF25BCEEBC009196E2 /* IncognitoPayKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D221A088169C9E5E00537ABF /* Signal */,
@@ -4256,6 +4284,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E153EFC425BCEEBC009196E2 /* IncognitoPayKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = IncognitoPayKit.framework;
+			remoteRef = E153EFC325BCEEBC009196E2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		453518661FC635DD00210559 /* Resources */ = {
