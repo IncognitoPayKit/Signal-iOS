@@ -860,7 +860,8 @@
 		D2AEACDC16C426DA00C364C0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AEACDB16C426DA00C364C0 /* CFNetwork.framework */; };
 		DA2448EB739FFD5100E94059 /* Pods_NotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF2FAAECC00C2F8262444B8 /* Pods_NotificationServiceExtension.framework */; };
 		E1368CBE18A1C36B00109378 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9EB5ABC1884C002007CBB57 /* MessageUI.framework */; };
-		E153EFC525BCEED7009196E2 /* IncognitoPayKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E153EFC425BCEEBC009196E2 /* IncognitoPayKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E1F418CC25FCD50800A6792A /* IncognitoPayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CE573125FCCF80007A897F /* IncognitoPayKit.framework */; };
+		E1F418CD25FCD50800A6792A /* IncognitoPayKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E1CE573125FCCF80007A897F /* IncognitoPayKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E44AD4E624E98F440035D7B8 /* PhotoCaptureDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44AD4E524E98F430035D7B8 /* PhotoCaptureDismiss.swift */; };
 		FC3BD9881A30A790005B96BB /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3BD9871A30A790005B96BB /* Social.framework */; };
 		FCB11D8C1A129A76002F93FB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB11D8B1A129A76002F93FB /* CoreMedia.framework */; };
@@ -930,7 +931,7 @@
 			remoteGlobalIDString = D221A088169C9E5E00537ABF;
 			remoteInfo = Signal;
 		};
-		E153EFC325BCEEBC009196E2 /* PBXContainerItemProxy */ = {
+		E1CE573025FCCF80007A897F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E153EFBF25BCEEBC009196E2 /* IncognitoPayKit.xcodeproj */;
 			proxyType = 2;
@@ -958,8 +959,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E153EFC525BCEED7009196E2 /* IncognitoPayKit.framework in Embed Frameworks */,
 				4535189A1FC63DBF00210559 /* SignalMessaging.framework in Embed Frameworks */,
+				E1F418CD25FCD50800A6792A /* IncognitoPayKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1999,7 +2000,7 @@
 		DCFF39FE94636EAFEAF06C70 /* Pods-NotificationServiceExtension.app store release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotificationServiceExtension.app store release.xcconfig"; path = "Pods/Target Support Files/Pods-NotificationServiceExtension/Pods-NotificationServiceExtension.app store release.xcconfig"; sourceTree = "<group>"; };
 		DE2DD605305BC6EFAD731723 /* Pods-Signal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Signal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Signal/Pods-Signal.debug.xcconfig"; sourceTree = "<group>"; };
 		DF728B4B438716EAF95CEC18 /* Pods-Signal.app store release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Signal.app store release.xcconfig"; path = "Pods/Target Support Files/Pods-Signal/Pods-Signal.app store release.xcconfig"; sourceTree = "<group>"; };
-		E153EFBF25BCEEBC009196E2 /* IncognitoPayKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IncognitoPayKit.xcodeproj; path = ../IncognitoPayKit/IncognitoPayKit/IncognitoPayKit.xcodeproj; sourceTree = "<group>"; };
+		E153EFBF25BCEEBC009196E2 /* IncognitoPayKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IncognitoPayKit.xcodeproj; path = "../incognitopaykit-iOS/IncognitoPayKit/IncognitoPayKit.xcodeproj"; sourceTree = "<group>"; };
 		E1A0AD8B16E13FDD0071E604 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		E1B5467C25B8E16700CA69A1 /* SignalShareExtensionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SignalShareExtensionDebug.entitlements; sourceTree = "<group>"; };
 		E1B5467D25B8E20B00CA69A1 /* NotificationServiceExtensionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationServiceExtensionDebug.entitlements; sourceTree = "<group>"; };
@@ -2087,6 +2088,7 @@
 				A1C32D5017A06538000A904E /* AddressBookUI.framework in Frameworks */,
 				D2AEACDC16C426DA00C364C0 /* CFNetwork.framework in Frameworks */,
 				D2179CFE16BB0B480006F3AB /* SystemConfiguration.framework in Frameworks */,
+				E1F418CC25FCD50800A6792A /* IncognitoPayKit.framework in Frameworks */,
 				347C37FF2526005800F3D941 /* CloudKit.framework in Frameworks */,
 				D2179CFC16BB0B3A0006F3AB /* CoreTelephony.framework in Frameworks */,
 				D221A08E169C9E5E00537ABF /* UIKit.framework in Frameworks */,
@@ -3862,10 +3864,10 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E153EFC025BCEEBC009196E2 /* Products */ = {
+		E1CE572D25FCCF7F007A897F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E153EFC425BCEEBC009196E2 /* IncognitoPayKit.framework */,
+				E1CE573125FCCF80007A897F /* IncognitoPayKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -4269,7 +4271,7 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = E153EFC025BCEEBC009196E2 /* Products */;
+					ProductGroup = E1CE572D25FCCF7F007A897F /* Products */;
 					ProjectRef = E153EFBF25BCEEBC009196E2 /* IncognitoPayKit.xcodeproj */;
 				},
 			);
@@ -4286,11 +4288,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		E153EFC425BCEEBC009196E2 /* IncognitoPayKit.framework */ = {
+		E1CE573125FCCF80007A897F /* IncognitoPayKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = IncognitoPayKit.framework;
-			remoteRef = E153EFC325BCEEBC009196E2 /* PBXContainerItemProxy */;
+			remoteRef = E1CE573025FCCF80007A897F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

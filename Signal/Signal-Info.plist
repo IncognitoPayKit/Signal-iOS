@@ -5,7 +5,7 @@
 	<key>BuildDetails</key>
 	<dict>
 		<key>OSXVersion</key>
-		<string>10.15.7</string>
+		<string>11.2.1</string>
 		<key>WebRTCCommit</key>
 		<string>d9faa1be9ef6996232977b0ee713efa024c0df9d Production build of v2.8.8</string>
 	</dict>
@@ -139,6 +139,8 @@
 	<string>Signal will let you choose which photos from your library to send.</string>
 	<key>PHPhotoLibraryPreventAutomaticLimitedAccessAlert</key>
 	<true/>
+	<key>REST_API_BASE_URL</key>
+	<string>https:/$()/us-central1-incognito-payment-signal-uat.cloudfunctions.net</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>dripicons-v2.ttf</string>

@@ -8,6 +8,8 @@ import IncognitoPayKit
 
 @objc
 class ConversationSplitViewController: UISplitViewController, ConversationSplit {
+  
+    private lazy var contacts = [Contact]()
 
     fileprivate var deviceTransferNavController: DeviceTransferNavigationController?
 
@@ -473,23 +475,8 @@ class ConversationSplitViewController: UISplitViewController, ConversationSplit 
 
 extension ConversationSplitViewController: UISplitViewControllerDelegate {
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-        /*
-         * Integrate Incognito Pay button
-         */
-        let incognitoPayButton = IncognitoPayButton(base: self)
-        let button = UIView()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addSubview(incognitoPayButton)
-        
-        view.addSubview(button)
-        view.bringSubviewToFront(button)
-        
-        NSLayoutConstraint.activate([
-          button.heightAnchor.constraint(equalToConstant: 50),
-          button.widthAnchor.constraint(equalToConstant: 100),
-          button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
-          button.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
+        // After contacts are loaded then show the Incognito Payment button.
+        contactsViewHelper.addObserver(self)
 
         applyNavBarStyle(collapsed: true)
 
@@ -548,6 +535,50 @@ extension ConversationSplitViewController: UINavigationControllerDelegate {
         // the current conversation is no longer selected.
         guard isCollapsed, viewController is ConversationListViewController else { return }
         selectedConversationViewController = nil
+    }
+}
+
+extension ConversationSplitViewController: ContactsViewHelperObserver {
+    public func contactsViewHelperDidUpdateContacts() {
+        let contactsManager = Environment.shared.contactsManager
+        contacts = contactsManager!.allContacts
+        
+        if (contacts.count > 0) {
+            let contactList = contacts.map({
+                IncognitoContact(
+                    firstName: $0.firstName ?? "",
+                    lastName: $0.lastName ?? "",
+                    image: nil,
+                    id: $0.uniqueId,
+                    walletAddress: ""
+                )
+            })
+            
+            guard let id = tsAccountManager.localAddress?.uuidString else {
+                print("Cannot activate Incognito Button. Signal user id is empty.")
+                return
+            }
+            
+            let incognitoPayButton = IncognitoPayButton(
+                base: self,
+                contactList: contactList,
+                id: id
+            )
+            
+            let button = UIView()
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.addSubview(incognitoPayButton)
+            
+            view.addSubview(button)
+            view.bringSubviewToFront(button)
+            
+            NSLayoutConstraint.activate([
+                button.heightAnchor.constraint(equalToConstant: 50),
+                button.widthAnchor.constraint(equalToConstant: 100),
+                button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
+                button.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            ])
+        }
     }
 }
 
